@@ -67,7 +67,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="backgroundinit.cpp" />
+    <ClCompile Include="interface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
