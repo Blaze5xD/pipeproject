@@ -11,7 +11,6 @@ const int SCREEN_WIDTH=700;
 const int SCREEN_HEIGHT=700;
 SDL_Event event;
 
-
 class DPipe {
 public:
 	DPipe(int xcent,int ycent,int wid,int heig);
@@ -22,16 +21,15 @@ public:
 	void spin(SDL_Renderer* ren);
 
 	vector<SDL_Point> vision();
+	vector<SDL_Point> visionRightLeft();
+	vector<SDL_Point> visionUpDown();
 
 	bool ismouse();
 
 	void upgrade(SDL_Renderer* ren);
 
-	int width() {return Pipe.w;}
-	int width1() {return Pipe1.w;}
 
-	int height() {return Pipe.h;}
-	int height1() {return Pipe1.h;}
+	int getuse() {return uses;}
 
 	SDL_Point center();
 	SDL_Rect tryba() {return Pipe;}
@@ -138,6 +136,36 @@ void DPipe::upgrade(SDL_Renderer *ren)
 		uses-=4;
 		default_create(ren,"text1.bmp");
 	}
+}
+
+vector<SDL_Point> DPipe::visionRightLeft()
+{
+	vector<SDL_Point> radiusof(4);
+
+		SDL_Point a={Pipe.x,Pipe.y};
+		SDL_Point b={Pipe.x+Pipe.w,Pipe.y};
+		SDL_Point c={Pipe.x+Pipe.w,Pipe.y+Pipe.h};
+		SDL_Point d={Pipe.x,Pipe.y+Pipe.h};
+		radiusof[0]=a;
+		radiusof[1]=b;
+		radiusof[2]=c;
+		radiusof[3]=d;
+		return radiusof;
+}
+
+vector<SDL_Point> DPipe::visionUpDown()
+{
+	vector<SDL_Point> radiusof(4);
+
+		SDL_Point a={Pipe1.x,Pipe1.y};
+		SDL_Point b={Pipe1.x+Pipe1.w,Pipe1.y};
+		SDL_Point c={Pipe1.x+Pipe1.w,Pipe1.y+Pipe1.h};
+		SDL_Point d={Pipe1.x,Pipe1.y+Pipe1.h};
+		radiusof[0]=a;
+		radiusof[1]=b;
+		radiusof[2]=c;
+		radiusof[3]=d;
+		return radiusof;
 }
 
 vector<SDL_Point> DPipe::vision()
