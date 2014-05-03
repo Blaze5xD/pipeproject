@@ -1,0 +1,1 @@
+extern SDL_Event event;
