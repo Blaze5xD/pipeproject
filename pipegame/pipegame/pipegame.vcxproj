@@ -67,10 +67,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CrossPipe.cpp" />
+    <ClCompile Include="DirectPipe.cpp" />
+    <ClCompile Include="DoublePipe.cpp" />
     <ClCompile Include="interface.cpp" />
+    <ClCompile Include="water.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h" />
+    <ClInclude Include="CrossPipe.h" />
+    <ClInclude Include="DirectPipe.h" />
+    <ClInclude Include="DoublePipe.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="water.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
