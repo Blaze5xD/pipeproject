@@ -130,7 +130,7 @@ void Water::default_create(SDL_Renderer *ren,string a)
 
 bool Water::isrange()
 {
-	if(Voda.x>=10 && Voda.x<=720 && Voda.y>=50 && Voda.y<=750)
+	if(Voda.x>=10 && Voda.x<=900 && Voda.y>=50 && Voda.y<=750)
 		return true;
 	else
 		return false;

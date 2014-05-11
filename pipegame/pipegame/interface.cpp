@@ -1,8 +1,8 @@
 #include "water.h"
 #include "functions.h"
 SDL_Event event;
-int SCREEN_HEIGHT = 420;
-int SCREEN_WIDTH = 640;
+int SCREEN_HEIGHT = 700;
+int SCREEN_WIDTH = 900;
 
 SDL_Rect RectMake(int x,int y,int w,int h)
 {
@@ -16,33 +16,37 @@ SDL_Rect RectMake(int x,int y,int w,int h)
 
 int main(int argc, char *argv[])
 {
-		vector<DPipe> DirectPipes(12);
-		vector<DoublePipe> DoublePipes(12);
+		vector<DPipe> DirectPipes(13);
+		vector<DoublePipe> DoublePipes(13);
 		vector<CrossPipe> CrossPipes(2);
 				DPipe a0(50,SCREEN_HEIGHT-50,100,40);
 				DoublePipe b0(150,SCREEN_HEIGHT-50,70,40);
-				DPipe a1(250,SCREEN_HEIGHT-50,100,40);
-				DoublePipe b1(350,SCREEN_HEIGHT-50,70,40);
-				DPipe a2(450,SCREEN_HEIGHT-50,100,40);
-				DoublePipe b2(550,SCREEN_HEIGHT-50,70,40);
-				DPipe a3(50,SCREEN_HEIGHT-150,100,40);
-				DPipe a4(150,SCREEN_HEIGHT-150,100,40);
-				DoublePipe b3(250,SCREEN_HEIGHT-150,70,40);
-				DoublePipe b4(350,SCREEN_HEIGHT-150,70,40);
-				CrossPipe c0(450,SCREEN_HEIGHT-150,100,40);
-				DPipe a5(550,SCREEN_HEIGHT-150,100,40);
-				DoublePipe b5(50,SCREEN_HEIGHT-250,70,40);
-				DoublePipe b6(150,SCREEN_HEIGHT-250,70,40);
-				DoublePipe b7(250,SCREEN_HEIGHT-250,70,40);
-				DPipe a6(350,SCREEN_HEIGHT-250,100,40);
-				DPipe a7(450,SCREEN_HEIGHT-250,100,40);
-				DoublePipe b8(550,SCREEN_HEIGHT-250,70,40);
-				DPipe a8(50,SCREEN_HEIGHT-350,100,40);
-				DoublePipe b9(150,SCREEN_HEIGHT-350,70,40);
-				CrossPipe c1(250,SCREEN_HEIGHT-350,100,40);
-				DoublePipe b10(350,SCREEN_HEIGHT-350,70,40);
-				DPipe a9(450,SCREEN_HEIGHT-350,100,40);
-				DPipe a10(550,SCREEN_HEIGHT-350,100,40);
+				DPipe a1(150,SCREEN_HEIGHT-150,100,40);
+				DoublePipe b1(150,SCREEN_HEIGHT-250,70,40);
+				DPipe a2(250,SCREEN_HEIGHT-350,100,40);
+				DoublePipe b2(350,SCREEN_HEIGHT-250,70,40);
+				DPipe a3(350,SCREEN_HEIGHT-350,100,40);
+				DPipe a4(350,SCREEN_HEIGHT-150,100,40);
+				DoublePipe b3(250,SCREEN_HEIGHT-450,70,40);
+				DoublePipe b4(350,SCREEN_HEIGHT-450,70,40);
+				CrossPipe c0(250,SCREEN_HEIGHT-250,100,40);
+				DPipe a5(550,SCREEN_HEIGHT-50,100,40);
+				DoublePipe b5(250,SCREEN_HEIGHT-150,70,40);
+				DoublePipe b6(450,SCREEN_HEIGHT-50,70,40);
+				DoublePipe b7(650,SCREEN_HEIGHT-150,70,40);
+				DPipe a6(550,SCREEN_HEIGHT-50,100,40);
+				DPipe a7(550,SCREEN_HEIGHT-150,100,40);
+				DoublePipe b8(750,SCREEN_HEIGHT-50,70,40);
+				DPipe a8(550,SCREEN_HEIGHT-250,100,40);
+				DoublePipe b9(750,SCREEN_HEIGHT-350,70,40);
+				CrossPipe c1(450,SCREEN_HEIGHT-150,100,40);
+				DoublePipe b10(350,SCREEN_HEIGHT-450,70,40);
+				DPipe a9(750,SCREEN_HEIGHT-150,100,40);
+				DPipe a10(750,SCREEN_HEIGHT-250,100,40);
+				DoublePipe b11(450,SCREEN_HEIGHT-250,70,40);
+				DoublePipe b12(650,SCREEN_HEIGHT-250,70,40);
+				DPipe a11(650,SCREEN_HEIGHT-50,100,40);
+				DPipe a12(850,SCREEN_HEIGHT-350,100,40);
 
 				DirectPipes[0] = a0; DoublePipes[0] = b0;
 				DirectPipes[1] = a1; DoublePipes[1] = b1;
@@ -55,8 +59,10 @@ int main(int argc, char *argv[])
 				DirectPipes[8] = a8; DoublePipes[8] = b8;
 				DirectPipes[9] = a9; DoublePipes[9] = b9;
 				DirectPipes[10] = a10; DoublePipes[10] = b10;
+				DirectPipes[11] = a11; DoublePipes[11] = b11;
+				DirectPipes[12] = a12; DoublePipes[12] = b12;
 				CrossPipes[0] = c0; CrossPipes[1] = c1;
-				Water a(50,SCREEN_HEIGHT-50,40,10);
+				Water a(20,SCREEN_HEIGHT-50,40,40);
 
 	int choose = 0;
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -96,23 +102,16 @@ int main(int argc, char *argv[])
 				SDL_RenderClear (game_renderer);
 				SDL_RenderCopy (game_renderer, menu, NULL, &menu_bg_rect);
 				SDL_RenderPresent (game_renderer);
-
-				if (menu_event->type == SDL_MOUSEMOTION)
-				{
-					cout << "mouse x = " << menu_event->motion.x << endl;
-					cout << "mouse y = " << menu_event->motion.y << endl;
-				}
-
 				if (menu_event->type == SDL_MOUSEBUTTONDOWN)
 				{
 					if (menu_event->button.button = SDL_BUTTON_LEFT)
 					{
-						if ((menu_event->button.x>=280) && (menu_event->button.x<=390) && (menu_event->button.y>=190) && (menu_event->button.y<=220))
+						if ((menu_event->button.x>=390) && (menu_event->button.x<=550) && (menu_event->button.y>=310) && (menu_event->button.y<=370))
 						{
 							choose = 1; 
 							menu_quit = true;
 						}
-						if ((menu_event->button.x>=280) && (menu_event->button.x<=390) && (menu_event->button.y>=250) && (menu_event->button.y<=280))
+						if ((menu_event->button.x>=390) && (menu_event->button.x<=550) && (menu_event->button.y>410) && (menu_event->button.y<=470))
 						{
 							choose = 2; 
 							menu_quit = true;
@@ -176,7 +175,6 @@ int main(int argc, char *argv[])
 				{
 					CrossPipes[i].default_create(game_renderer,"CrossHor.bmp","CrossVert.bmp");
 				}
-				a.default_create(game_renderer,"start.bmp");
 				SDL_RenderPresent(game_renderer);
 				while(!quit && !won)
 				{
@@ -187,7 +185,7 @@ int main(int argc, char *argv[])
 							quit=true;
 						else if(event.type==SDL_MOUSEBUTTONDOWN &&  event.button.button==SDL_BUTTON_LEFT)
 						{
-							for(int i=0;i<DirectPipes.size();++i)
+							for(int i=1;i<DirectPipes.size()-1;++i)
 							{
 								if(DirectPipes[i].ismouse())
 								{
@@ -226,7 +224,7 @@ int main(int argc, char *argv[])
 								}
 							}
 						}
-						else if(event.type==SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE)
+						else if((event.type==SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE) || (event.type==SDL_MOUSEBUTTONDOWN && event.button.button==SDL_BUTTON_RIGHT))
 						{
 							while(a.isrange() && !won)
 							{
@@ -234,7 +232,7 @@ int main(int argc, char *argv[])
 								{
 									a.Dpipebehaviour(game_renderer,DirectPipes);
 									SDL_RenderPresent(game_renderer);
-									if (a.Woda().x==550 && a.Woda().y==50)
+									if (a.Woda().x==859 && a.Woda().y==330)
 									{
 										won = true;
 									}
@@ -243,7 +241,7 @@ int main(int argc, char *argv[])
 								{
 									a.Doubpipebehavior(game_renderer,DoublePipes);
 									SDL_RenderPresent(game_renderer); 
-									if (a.Woda().x==550 && a.Woda().y==50)
+									if (a.Woda().x==859 && a.Woda().y==330)
 									{
 										won = true;
 									}
@@ -252,7 +250,7 @@ int main(int argc, char *argv[])
 								{
 									a.Crosspipebehaviour(game_renderer,CrossPipes);
 									SDL_RenderPresent(game_renderer);
-									if (a.Woda().x==550 && a.Woda().y==50)
+									if (a.Woda().x==859 && a.Woda().y==330)
 									{
 										won = true;
 									}
@@ -276,29 +274,25 @@ int main(int argc, char *argv[])
 						{
 							if (menu2_event->button.button = SDL_BUTTON_LEFT)
 							{
-								if ((menu2_event->button.x>=230) && (menu2_event->button.x<=380) && (menu2_event->button.y>=150) && (menu2_event->button.y<=180))
+								if ((menu2_event->button.x>=330) && (menu2_event->button.x<=540) && (menu2_event->button.y>=250) && (menu2_event->button.y<=290))
 								{
 									choose = 1;
 									cout << choose << endl;
 									won = false;
 								}
-								if ((menu2_event->button.x>=270) && (menu2_event->button.x<=340) && (menu2_event->button.y>=230) && (menu2_event->button.y<=250))
+								if ((menu2_event->button.x>=380) && (menu2_event->button.x<=480) && (menu2_event->button.y>=380) && (menu2_event->button.y<=420))
 								{ 
 									choose = 2;
 									cout << choose << endl;
 									won = false;
+									quit = true;
 								}
 							}
-						}
-						if (menu2_event->type == SDL_MOUSEMOTION)
-						{
-							cout << "mouse x = " << menu2_event->motion.x << endl;
-							cout << "mouse y = " << menu2_event->motion.y << endl;
 						}
 						SDL_RenderPresent (game_renderer);
 					}
 				}
-				if (choose == 1)
+				if (choose == 1 && !quit)
 				{
 					SDL_RenderClear (game_renderer);
 					while (!quit && event.type != SDL_QUIT)
