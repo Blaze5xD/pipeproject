@@ -4,8 +4,6 @@
 #include "DoublePipe.h"
 #include "CrossPipe.h"
 
-
-
 class Water {
 public:
 	Water(int xright,int yright,int wid,int heig);
@@ -36,6 +34,8 @@ public:
 	bool getleft() {return left;}
 	bool getup() {return up;}
 	bool getdown() {return down;}
+	
+	void comeback(int x,int y,int wid);
 private:
 	bool right;
 	bool left;

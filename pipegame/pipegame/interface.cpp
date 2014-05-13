@@ -16,7 +16,7 @@ SDL_Rect RectMake(int x,int y,int w,int h)
 
 int main(int argc, char *argv[])
 {
-		vector<DPipe> DPIPES(44);
+	vector<DPipe> DPIPES(44);
 	vector<DoublePipe> DOUBPIPES(18);
 	vector<CrossPipe> CROSSPIPES(3);
 
