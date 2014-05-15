@@ -108,22 +108,19 @@ int main(int argv,char **argc)
 			//level4
 			else if(choose==7)
 			{
-				if(level2choose==0)
+				if(level4choose==0)
 				{
 					SDL_RenderClear(ren);
 					back.default_create(ren,"BACK.jpg");
 					init_pipes_level_four(ren,DPIPES,DOUBPIPES,CROSSPIPES,a);
-					level2choose=1;
+					level4choose=1;
 				}
-				else if(level2choose==1)
+				else if(level4choose==1)
 				{
-					go_level_four(ren,DPIPES,DOUBPIPES,CROSSPIPES,a,back,choose,level2choose);
+					go_level_two(ren,DPIPES,DOUBPIPES,CROSSPIPES,a,back,choose,level4choose);
 				}
 			}
-			else if(choose==8)
-			{
-				levels_change(ren,choose,event);
-			} 
+
 		}
 	}
 	return 0;
